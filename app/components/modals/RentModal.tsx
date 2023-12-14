@@ -10,13 +10,15 @@ import { useMemo, useState } from "react";
 import useRentModal from "@/app/hooks/useRentModal";
 
 import Modal from "./Modal";
-import Counter from "../inputs/Counter";
+// import Counter from "../inputs/Counter";
 import CategoryInput from "../inputs/CategoryInput";
-import CountrySelect from "../inputs/CountrySelect";
+// import CountrySelect from "../inputs/CountrySelect";
 import { categories } from "../navbar/Categories";
-import ImageUpload from "../inputs/ImageUpload";
+// import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
+import CountrySelect from "../inputs/CountrySelect";
+import Map from "../Map";
 
 enum STEPS {
   CATEGORY = 0,
@@ -54,8 +56,10 @@ const RentModal = () => {
       description: "",
     },
   });
-
+  
   const location = watch("location");
+  console.log("🚀 ~ RentModal ~ location:", location);
+
   const category = watch("category");
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
@@ -67,6 +71,7 @@ const RentModal = () => {
       dynamic(() => import("../Map"), {
         ssr: false,
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [location]
   );
 
@@ -179,7 +184,7 @@ const RentModal = () => {
           title="Share some basics about your place"
           subtitle="What amenitis do you have?"
         />
-        <Counter
+        {/* <Counter
           onChange={(value) => setCustomValue("guestCount", value)}
           value={guestCount}
           title="Guests"
@@ -198,7 +203,7 @@ const RentModal = () => {
           value={bathroomCount}
           title="Bathrooms"
           subtitle="How many bathrooms do you have?"
-        />
+        /> */}
       </div>
     );
   }
@@ -210,10 +215,10 @@ const RentModal = () => {
           title="Add a photo of your place"
           subtitle="Show guests what your place looks like!"
         />
-        <ImageUpload
+        {/* <ImageUpload
           onChange={(value) => setCustomValue("imageSrc", value)}
           value={imageSrc}
-        />
+        /> */}
       </div>
     );
   }
