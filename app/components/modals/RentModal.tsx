@@ -19,6 +19,7 @@ import Input from "../inputs/Input";
 import Heading from "../Heading";
 import CountrySelect from "../inputs/CountrySelect";
 import Map from "../Map";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
   CATEGORY = 0,
@@ -58,8 +59,6 @@ const RentModal = () => {
   });
   
   const location = watch("location");
-  console.log("🚀 ~ RentModal ~ location:", location);
-
   const category = watch("category");
   const guestCount = watch("guestCount");
   const roomCount = watch("roomCount");
@@ -184,7 +183,7 @@ const RentModal = () => {
           title="Share some basics about your place"
           subtitle="What amenitis do you have?"
         />
-        {/* <Counter
+        <Counter
           onChange={(value) => setCustomValue("guestCount", value)}
           value={guestCount}
           title="Guests"
@@ -203,7 +202,7 @@ const RentModal = () => {
           value={bathroomCount}
           title="Bathrooms"
           subtitle="How many bathrooms do you have?"
-        /> */}
+        />
       </div>
     );
   }
