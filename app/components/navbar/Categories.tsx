@@ -101,7 +101,6 @@ export const categories = [
 const Categories = () => {
   const params = useSearchParams();
   const category = params?.get("category");
-  console.log("🚀 ~ Categories ~ category:", category);
 
   const pathname = usePathname();
   const isMainPage = pathname === "/";
